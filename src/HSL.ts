@@ -52,6 +52,10 @@ export class HSL extends Vector {
         return `hsl(${c[0]},${c[1]}%,${c[2]}%)`;
     }
 
+    toHSL() {
+        return new HSL(...this.components.slice(0, 3));
+    }
+
     toHSLA(alpha = 1) {
         const { components: c } = this;
         return new HSLA(c[0], c[1], c[2], alpha);
