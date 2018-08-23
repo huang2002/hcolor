@@ -21,3 +21,8 @@ strictEqual(
     HColor.HSLA.fromHEX(sample.hex, .6).toRGBA().toString(true),
     HColor.HEX2RGBA(sample.hex, .6)
 );
+
+strictEqual(
+    HColor.parse('#F00').toString(),
+    'rgb(255,0,0)'
+);

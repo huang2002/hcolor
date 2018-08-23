@@ -20,6 +20,8 @@ HColor.HEX2HSLA('#135', .5, true); // hsla(210,67%,20%,0.5)
 
 const hsl = HColor.rgb(12, 34, 56).toHSL(true);
 hsl.toString(); // hsl(210,65%,13%)
+
+HColor.parse('#F00').toString(); // rgb(255,0,0)
 ```
 
 # APIs
