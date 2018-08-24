@@ -52,8 +52,12 @@ export class HSL extends Vector {
         return `hsl(${c[0]},${c[1]}%,${c[2]}%)`;
     }
 
-    toHSL() {
-        return new HSL(...this.components.slice(0, 3));
+    toHSL(round = false) {
+        let c = this.components.slice(0, 3);
+        if (round) {
+            c = c.map(Math.round);
+        }
+        return new HSL(c[0], c[1], c[2]);
     }
 
     toHSLA(alpha = 1) {

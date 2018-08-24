@@ -66,8 +66,12 @@ export class RGB extends Vector {
         return `rgb(${c.join(',')})`;
     }
 
-    toRGB() {
-        return new RGB(...this.components.slice(0, 3));
+    toRGB(round = false) {
+        let c = this.components.slice(0, 3);
+        if (round) {
+            c = c.map(Math.round);
+        }
+        return new RGB(c[0], c[1], c[2]);
     }
 
     toRGBA(alpha = 1) {
