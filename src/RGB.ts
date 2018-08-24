@@ -27,10 +27,10 @@ export class RGB extends Vector {
         }
     }
 
-    static StringPattern = /^rgb\(\s*((?:\d*\.)?\d+)\s*,\s*((?:\d*\.)?\d+)\s*,\s*((?:\d*\.)?\d+)\s*\)$/i;
+    static pattern = /^rgb\(\s*((?:\d*\.)?\d+)\s*,\s*((?:\d*\.)?\d+)\s*,\s*((?:\d*\.)?\d+)\s*\)$/i;
 
     static fromString(rgb: string) {
-        if (!rgb.match(RGB.StringPattern)) {
+        if (!rgb.match(RGB.pattern)) {
             throw "Invalid RGB string!";
         } else {
             return new RGB(+RegExp.$1, +RegExp.$2, +RegExp.$3);
@@ -120,10 +120,10 @@ export class RGBA extends RGB {
         return RGB.fromHEX(hex).toRGBA(alpha);
     }
 
-    static StringPattern = /^rgba\(\s*((?:\d*\.)?\d+)\s*,\s*((?:\d*\.)?\d+)\s*,\s*((?:\d*\.)?\d+)\s*,\s*((?:\d*\.)?\d+)\s*\)$/i;
+    static pattern = /^rgba\(\s*((?:\d*\.)?\d+)\s*,\s*((?:\d*\.)?\d+)\s*,\s*((?:\d*\.)?\d+)\s*,\s*((?:\d*\.)?\d+)\s*\)$/i;
 
     static fromString(rgba: string) {
-        if (!rgba.match(RGBA.StringPattern)) {
+        if (!rgba.match(RGBA.pattern)) {
             throw "Invalid RGBA string!";
         } else {
             return new RGBA(+RegExp.$1, +RegExp.$2, +RegExp.$3, +RegExp.$4);

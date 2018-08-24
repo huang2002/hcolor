@@ -1,3 +1,7 @@
+## 0.4.0 - 2018-08-24
+
+- Rename `StringPattern` `pattern`
+
 ## 0.3.0 - 2018-08-24
 
 - Add `round` option to cloning methods

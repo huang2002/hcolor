@@ -11,10 +11,10 @@ export class HSL extends Vector {
         return RGB.fromHEX(hex).toHSL(round);
     }
 
-    static StringPattern = /^hsl\(\s*((?:\d*\.)?\d+)\s*,\s*((?:\d*\.)?\d+)%\s*,\s*((?:\d*\.)?\d+)%\s*\)$/i;
+    static pattern = /^hsl\(\s*((?:\d*\.)?\d+)\s*,\s*((?:\d*\.)?\d+)%\s*,\s*((?:\d*\.)?\d+)%\s*\)$/i;
 
     static fromString(hsl: string) {
-        if (!hsl.match(HSL.StringPattern)) {
+        if (!hsl.match(HSL.pattern)) {
             throw "Invalid HSL string!";
         } else {
             return new HSL(+RegExp.$1, +RegExp.$2 / 100, +RegExp.$3 / 100);
@@ -117,10 +117,10 @@ export class HSLA extends HSL {
         return RGB.fromHEX(hex).toHSLA(alpha, round);
     }
 
-    static StringPattern = /^hsla\(\s*((?:\d*\.)?\d+)\s*,\s*((?:\d*\.)?\d+)%\s*,\s*((?:\d*\.)?\d+)%\s*,\s*((?:\d*\.)?\d+)\s*\)$/i;
+    static pattern = /^hsla\(\s*((?:\d*\.)?\d+)\s*,\s*((?:\d*\.)?\d+)%\s*,\s*((?:\d*\.)?\d+)%\s*,\s*((?:\d*\.)?\d+)\s*\)$/i;
 
     static fromString(hsla: string) {
-        if (!hsla.match(HSLA.StringPattern)) {
+        if (!hsla.match(HSLA.pattern)) {
             throw "Invalid HSLA string!";
         } else {
             return new HSLA(+RegExp.$1, +RegExp.$2 / 100, +RegExp.$3 / 100, +RegExp.$4);
