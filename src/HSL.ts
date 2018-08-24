@@ -55,7 +55,11 @@ export class HSL extends Vector {
     toHSL(round = false) {
         let c = this.components.slice(0, 3);
         if (round) {
+            c[1] *= 100;
+            c[2] *= 100;
             c = c.map(Math.round);
+            c[1] /= 100;
+            c[2] /= 100;
         }
         return new HSL(c[0], c[1], c[2]);
     }
